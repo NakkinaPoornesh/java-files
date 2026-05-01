@@ -1,0 +1,130 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void easy(float *score);
+void medium(float *score);
+void hard(float *score);
+
+int main() {
+    char start;
+    int level;
+    float score = 0;
+
+    printf("\n\t\tWELCOME TO THE QUIZ GAME\n");
+    printf("-----------------------------------\n");
+    printf("Press S to Start: ");
+    scanf(" %c", &start);
+
+    if (start != 'S') {
+        printf("Game not started.\n");
+        return 0;
+    }
+
+    printf("\nChoose Level:\n");
+    printf("1. EASY\n2. MEDIUM\n3. HARD\n");
+    printf("Enter choice: ");
+    scanf("%d", &level);
+
+    switch (level) {
+        case 1: easy(&score); break;
+        case 2: medium(&score); break;
+        case 3: hard(&score); break;
+        default: printf("Invalid Level\n");
+    }
+
+    printf("\nFinal Score: %.2f / 30\n", score);
+    return 0;
+}
+
+/* ---------------- EASY ---------------- */
+void easy(float *score) {
+    int ans;
+
+    printf("\n--- EASY LEVEL ---\n");
+
+    printf("\nQ1 Capital of Andhra Pradesh?\n");
+    printf("1.Vizag 2.Kurnool 3.Srikakulam 4.Amaravati\n");
+    scanf("%d", &ans);
+    if (ans == 4) { printf("Correct!\n"); *score += 5; }
+    else printf("Wrong! Answer: Amaravati\n");
+
+    printf("\nQ2 Ship of desert?\n");
+    printf("1.Dog 2.Lion 3.Cat 4.Camel\n");
+    scanf("%d", &ans);
+    if (ans == 4) { printf("Correct!\n"); *score += 5; }
+    else printf("Wrong! Answer: Camel\n");
+
+    printf("\nQ3 Days in a year?\n");
+    printf("1.278 2.366 3.365 4.279\n");
+    scanf("%d", &ans);
+    if (ans == 3) { printf("Correct!\n"); *score += 5; }
+    else printf("Wrong! Answer: 365\n");
+
+    printf("\nQ4 Baby frog?\n");
+    printf("1.Calf 2.Tadpole 3.Fish 4.Puppy\n");
+    scanf("%d", &ans);
+    if (ans == 2) { printf("Correct!\n"); *score += 5; }
+    else printf("Wrong! Answer: Tadpole\n");
+
+    printf("\nQ5 King of jungle?\n");
+    printf("1.Lion 2.Tiger 3.Cheetah 4.Ant\n");
+    scanf("%d", &ans);
+    if (ans == 1) { printf("Correct!\n"); *score += 5; }
+    else printf("Wrong! Answer: Lion\n");
+
+    printf("\nQ6 National bird of India?\n");
+    printf("1.Peacock 2.Kingfisher 3.Coucal 4.Hornbill\n");
+    scanf("%d", &ans);
+    if (ans == 1) { printf("Correct!\n"); *score += 5; }
+    else printf("Wrong! Answer: Peacock\n");
+}
+
+/* ---------------- MEDIUM ---------------- */
+void medium(float *score) {
+    int ans;
+
+    printf("\n--- MEDIUM LEVEL ---\n");
+
+    printf("\nQ1 Largest island?\n");
+    printf("1.Madagascar 2.Greenland 3.Borneo 4.New Guinea\n");
+    scanf("%d", &ans);
+    if (ans == 2) { printf("Correct!\n"); *score += 5; }
+    else { printf("Wrong! Answer: Greenland\n"); *score -= 0.5; }
+
+    printf("\nQ2 Who invented telephone?\n");
+    printf("1.Priestley 2.Elon Musk 3.Nokia 4.Alexander Bell\n");
+    scanf("%d", &ans);
+    if (ans == 4) { printf("Correct!\n"); *score += 5; }
+    else { printf("Wrong! Answer: Alexander Bell\n"); *score -= 0.5; }
+
+    printf("\nQ3 Largest desert?\n");
+    printf("1.Kalahari 2.Thar 3.Sahara 4.None\n");
+    scanf("%d", &ans);
+    if (ans == 3) { printf("Correct!\n"); *score += 5; }
+    else { printf("Wrong! Answer: Sahara\n"); *score -= 0.5; }
+}
+
+/* ---------------- HARD ---------------- */
+void hard(float *score) {
+    int ans;
+
+    printf("\n--- HARD LEVEL ---\n");
+
+    printf("\nQ1 Dead Sea between?\n");
+    printf("1.India-Pak 2.Israel-Jordan\n");
+    scanf("%d", &ans);
+    if (ans == 2) { printf("Correct!\n"); *score += 5; }
+    else { printf("Wrong! Answer: Israel-Jordan\n"); *score -= 1.5; }
+
+    printf("\nQ2 Languages on currency?\n");
+    printf("1.20 2.22 3.17 4.32\n");
+    scanf("%d", &ans);
+    if (ans == 3) { printf("Correct!\n"); *score += 5; }
+    else { printf("Wrong! Answer: 17\n"); *score -= 1.5; }
+
+    printf("\nQ3 Smallest ocean?\n");
+    printf("1.Arctic 2.Atlantic 3.Pacific 4.Indian\n");
+    scanf("%d", &ans);
+    if (ans == 1) { printf("Correct!\n"); *score += 5; }
+    else { printf("Wrong! Answer: Arctic\n"); *score -= 1.5; }
+}
